@@ -42,14 +42,14 @@ client.on("message", (message) => {
 
         return message.channel.send(
             new Discord.MessageEmbed()
-                .setTitle(`${emoji('850257294032633867')} Invalid Command Usage! ${emoji('850257294032633867')}`)
+                .setTitle(`Invalid Command Usage!`)
                 .setDescription(`**${reply}**`)
                 .setColor("RED")
         )
     }
 
     if (command.guildOnly && message.channel.type === 'dm') {
-        return message.channel.send(new Discord.MessageEmbed().setTitle(`${emoji('850257294032633867')} ERROR ${emoji('850257294032633867')}`).setDescription('I cannot execute that command in DMs as this command is Guild Only!').setColor('RED'));
+        return message.channel.send(new Discord.MessageEmbed().setTitle(`ERROR`).setDescription('I cannot execute that command in DMs as this command is Guild Only!').setColor('RED'));
     }
 
     const { cooldowns } = client;
