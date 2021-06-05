@@ -5,6 +5,8 @@ const token = process.env.token
 const client = new Client({ws: {intents: Intents.ALL}})
 module.exports = client;
 client.commands = new Collection();
+client.cooldowns = new Collection();
+
 
 ["command"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
@@ -13,5 +15,6 @@ client.commands = new Collection();
 client.on("ready", () => {
     console.log(`${client.user.tag} has Logged in!`)
 })
+
 
 client.login(token)
